@@ -8,6 +8,7 @@ Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
+# Source0-md5:	7608ca6ce5c906bfe960cd0f92bdb6d8
 URL:		http://funkcity.com/0101/
 BuildRequires:	%{apxs}
 BuildRequires:	apache(EAPI)-devel
