@@ -1,8 +1,8 @@
 %define		mod_name	dynvhost
-%define 	apxs		/usr/sbin/apxs
+%define 	apxs		/usr/sbin/apxs1
 Summary:	Dynamic Virtual Hosting
 Summary(pl):	Dynamiczne Serwery Wirtualne
-Name:		apache-mod_%{mod_name}
+Name:		apache1-mod_%{mod_name}
 Version:	1
 Release:	2
 License:	GPL
@@ -11,10 +11,11 @@ Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
 # Source0-md5:	7608ca6ce5c906bfe960cd0f92bdb6d8
 URL:		http://funkcity.com/0101/
 BuildRequires:	%{apxs}
-BuildRequires:	apache(EAPI)-devel
+BuildRequires:	apache1-devel
 BuildRequires:	zlib-devel
 Requires(post,preun):	%{apxs}
-Requires:	apache(EAPI)
+Requires:	apache1
+Obsoletes:	apache-mod_%{mod_name} <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
@@ -47,15 +48,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-if [ -f /var/lock/subsys/httpd ]; then
-	/etc/rc.d/init.d/httpd restart 1>&2
+if [ -f /var/lock/subsys/apache ]; then
+	/etc/rc.d/init.d/apache restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
 	%{apxs} -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-	if [ -f /var/lock/subsys/httpd ]; then
-		/etc/rc.d/init.d/httpd restart 1>&2
+	if [ -f /var/lock/subsys/apache ]; then
+		/etc/rc.d/init.d/apache restart 1>&2
 	fi
 fi
 
