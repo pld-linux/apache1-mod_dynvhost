@@ -29,7 +29,7 @@ Modu³ "mod_dynvhost" pozwala na tworzenie pseudo serwerów wirtualnych
 (name based). Wszystko czego potrzebujesz to katalog o pe³nej nazwie
 (FQDN) wirtualnego serwera - modu³ zajmie siê reszt±.
 
-%prep 
+%prep
 %setup -q -n %{mod_name}
 
 %build
