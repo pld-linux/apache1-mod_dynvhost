@@ -4,7 +4,7 @@ Summary:	Dynamic Virtual Hosting
 Summary(pl):	Dynamiczne Serwery Wirtualne
 Name:		apache-mod_%{mod_name}
 Version:	1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Group(cs):	Sí»ové/Démoni
