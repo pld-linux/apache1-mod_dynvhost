@@ -11,10 +11,10 @@ Group(pl):	Sieciowe/Serwery
 Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
 URL:		http://funkcity.com/0101
 BuildRequires:	/usr/sbin/apxs
-BuildRequires:	apache-devel
+BuildRequires:	apache(EAPI)-devel
 BuildRequires:	zlib-devel
 Prereq:		/usr/sbin/apxs
-Requires:	apache
+Requires:	apache(EAPI)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(/usr/sbin/apxs -q LIBEXECDIR)
@@ -47,7 +47,7 @@ gzip -9nf README ChangeLog
 %post
 %{_sbindir}/apxs -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 if [ -f /var/lock/subsys/httpd ]; then
-	%{_sysconfdir}/rc.d/init.d/httpd restart 1>&2
+	/etc/rc.d/init.d/httpd restart 1>&2
 fi
 
 %preun
