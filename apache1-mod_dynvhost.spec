@@ -1,4 +1,5 @@
 %define		mod_name	dynvhost
+%define 	apxs		/usr/sbin/apxs
 Summary:	Dynamic Virtual Hosting
 Summary(pl):	Dynamiczne Serwery Wirtualne
 Name:		apache-mod_%{mod_name}
@@ -6,18 +7,30 @@ Version:	1
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
+Group(cs):	Sí»ové/Démoni
+Group(da):	Netværks/Dæmoner
 Group(de):	Netzwerkwesen/Server
+Group(es):	Red/Servidores
+Group(fr):	Réseau/Serveurs
+Group(is):	Net/Púkar
+Group(it):	Rete/Demoni
+Group(no):	Nettverks/Daemoner
 Group(pl):	Sieciowe/Serwery
+Group(pt):	Rede/Servidores
+Group(ru):	óÅÔØ/äÅÍÏÎÙ
+Group(sl):	Omre¾ni/Stre¾niki
+Group(sv):	Nätverk/Demoner
+Group(uk):	íÅÒÅÖÁ/äÅÍÏÎÉ
 Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
 URL:		http://funkcity.com/0101
-BuildRequires:	/usr/sbin/apxs
+BuildRequires:	%{apxs}
 BuildRequires:	apache(EAPI)-devel
 BuildRequires:	zlib-devel
-Prereq:		/usr/sbin/apxs
+Prereq:		%{_sbindir}/apxs
 Requires:	apache(EAPI)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_pkglibdir	%(/usr/sbin/apxs -q LIBEXECDIR)
+%define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
 
 %description
 The "mod_dynvhost" module will create pseudo name based VirtualHosts
@@ -34,7 +47,7 @@ Modu³ "mod_dynvhost" pozwala na tworzenie pseudo serwerów wirtualnych
 %setup -q -n %{mod_name}
 
 %build
-%{_sbindir}/apxs -c mod_%{mod_name}.c -o mod_%{mod_name}.so
+%{apxs} -c mod_%{mod_name}.c -o mod_%{mod_name}.so
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -52,7 +65,7 @@ fi
 
 %preun
 if [ "$1" = "0" ]; then
-	/usr/sbin/apxs -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
+	%{_sbindir}/apxs -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 	if [ -f /var/lock/subsys/httpd ]; then
 		/etc/rc.d/init.d/httpd restart 1>&2
 	fi
