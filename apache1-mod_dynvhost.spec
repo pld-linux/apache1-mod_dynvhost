@@ -24,8 +24,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The "mod_dynvhost" module will create pseudo name based VirtualHosts
 on the fly. All you need is a directory with the fully qualified
-domain name (FQDN) of your virtual site and the module will take
-care of the rest.
+domain name (FQDN) of your virtual site and the module will take care
+of the rest.
 
 %description -l pl
 Modu³ "mod_dynvhost" pozwala na tworzenie pseudo serwerów wirtualnych
@@ -71,5 +71,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/conf.d/*_mod_%{mod_name}.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/*_mod_%{mod_name}.conf
 %attr(755,root,root) %{_pkglibdir}/*
