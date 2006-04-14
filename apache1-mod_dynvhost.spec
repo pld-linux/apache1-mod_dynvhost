@@ -16,7 +16,7 @@ BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
 Requires(triggerpostun):	%{apxs}
 Requires:	apache1 >= 1.3.33-2
-Obsoletes:	apache-mod_dynvhost <= %{version}
+Obsoletes:	apache-mod_dynvhost <= 1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
