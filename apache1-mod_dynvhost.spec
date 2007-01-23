@@ -4,7 +4,7 @@ Summary:	Dynamic Virtual Hosting
 Summary(pl):	Dynamiczne Serwery Wirtualne
 Name:		apache1-mod_%{mod_name}
 Version:	1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
@@ -15,7 +15,7 @@ BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
 Requires(triggerpostun):	%{apxs}
-Requires:	apache1 >= 1.3.33-2
+Requires:	apache1(EAPI)
 Obsoletes:	apache-mod_dynvhost <= 1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
