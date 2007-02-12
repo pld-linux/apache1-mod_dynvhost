@@ -1,7 +1,7 @@
 %define		mod_name	dynvhost
 %define 	apxs		/usr/sbin/apxs1
 Summary:	Dynamic Virtual Hosting
-Summary(pl.UTF-8):   Dynamiczne Serwery Wirtualne
+Summary(pl.UTF-8):	Dynamiczne Serwery Wirtualne
 Name:		apache1-mod_%{mod_name}
 Version:	1
 Release:	4
