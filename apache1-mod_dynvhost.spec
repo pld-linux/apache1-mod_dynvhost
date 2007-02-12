@@ -1,7 +1,7 @@
 %define		mod_name	dynvhost
 %define 	apxs		/usr/sbin/apxs1
 Summary:	Dynamic Virtual Hosting
-Summary(pl):	Dynamiczne Serwery Wirtualne
+Summary(pl.UTF-8):   Dynamiczne Serwery Wirtualne
 Name:		apache1-mod_%{mod_name}
 Version:	1
 Release:	4
@@ -28,10 +28,10 @@ on the fly. All you need is a directory with the fully qualified
 domain name (FQDN) of your virtual site and the module will take care
 of the rest.
 
-%description -l pl
-Modu³ "mod_dynvhost" pozwala na tworzenie pseudo serwerów wirtualnych
-(name based). Wszystko czego potrzebujesz to katalog o pe³nej nazwie
-(FQDN) wirtualnego serwera - modu³ zajmie siê reszt±.
+%description -l pl.UTF-8
+ModuÅ‚ "mod_dynvhost" pozwala na tworzenie pseudo serwerÃ³w wirtualnych
+(name based). Wszystko czego potrzebujesz to katalog o peÅ‚nej nazwie
+(FQDN) wirtualnego serwera - moduÅ‚ zajmie siÄ™ resztÄ….
 
 %prep
 %setup -q -n %{mod_name}
