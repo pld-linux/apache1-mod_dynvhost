@@ -10,8 +10,7 @@ Group:		Networking/Daemons
 Source0:	http://funkcity.com/0101/projects/dynvhost/mod_%{mod_name}.tar.gz
 # Source0-md5:	7608ca6ce5c906bfe960cd0f92bdb6d8
 URL:		http://funkcity.com/0101/
-BuildRequires:	apache1-apxs
-BuildRequires:	apache1-devel >= 1.3.33-2
+BuildRequires:	apache1-devel >= 1.3.39
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
 Requires(triggerpostun):	%{apxs}
